@@ -1,7 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.trade_alarm">
+
+    <!-- Required to fetch data from the internet. -->
+<uses-permission android:name="android.permission.INTERNET" />
+
+
    <application
-        android:label="trade_alarm"
+        android:label="Trade Alarm"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -31,4 +36,18 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <!-- Provide required visibility configuration for API level 30 and above -->
+<queries>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="https" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="http" />
+  </intent>
+</queries>
 </manifest>
