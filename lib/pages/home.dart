@@ -86,6 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    log('codes list ${codes.length}');
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Trade Alarm'),
@@ -99,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    _advertiseBoxWidget(),
+                    _advertiseBoxWidget(size),
                     const SizedBox(
                       height: 40,
                     ),
@@ -155,10 +157,17 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  InkWell _advertiseBoxWidget() {
+  InkWell _advertiseBoxWidget(Size size) {
     return InkWell(
         onTap: _launchUrl,
-        child: Image.asset('assets/images/advertise_image.png'));
+        child: Container(
+          color: const Color(0xffF6C913),
+          width: size.width * 0.9,
+          child: Image.asset(
+            'assets/images/advertise_image.png',
+            height: 250,
+          ),
+        ));
   }
 
   Container _currentPriceWidget() {
